@@ -11,10 +11,11 @@ import { AppController } from './app.controller';
       validationSchema: Joi.object({
         JWT_SECRET: Joi.string().required(),
         JWT_EXPIRES_IN: Joi.string().required(),
+        DATABASE_URL: Joi.string().required(),
       }),
     }),
     AuthModule,
   ],
-  controllers: [AppController], // 👈 THIS WAS MISSING
+  controllers: [AppController],
 })
 export class AppModule {}
