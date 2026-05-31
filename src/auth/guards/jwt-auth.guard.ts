@@ -13,6 +13,9 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
     info: unknown,
     context: ExecutionContext,
   ): TUser {
+    void info;
+    void context;
+
     if (err || !user) {
       throw new UnauthorizedException();
     }

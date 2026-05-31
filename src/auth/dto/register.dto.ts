@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsString, MaxLength, MinLength } from 'class-validator';
 
-export class LoginDto {
+export class RegisterDto {
   @ApiProperty({
     example: 'admin@test.com',
     maxLength: 320,
@@ -12,12 +12,12 @@ export class LoginDto {
 
   @ApiProperty({
     example: 'password123',
-    minLength: 6,
+    minLength: 8,
     maxLength: 128,
     writeOnly: true,
   })
   @IsString()
-  @MinLength(6)
+  @MinLength(8)
   @MaxLength(128)
   password!: string;
 }

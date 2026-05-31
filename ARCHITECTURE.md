@@ -156,9 +156,13 @@ Every request body should have a DTO.
 
 DTOs should use `class-validator` decorators.
 
+DTOs and API response objects must also include Swagger metadata with `@ApiProperty` or `@ApiPropertyOptional` so `/api` stays accurate.
+
 Do not pass unvalidated raw request bodies into services.
 
 Use separate DTOs for separate operations when the rules differ. For example, `CreateUserDto` and `UpdateUserDto` should not be forced into one shape if they validate differently.
+
+Whenever an endpoint, request body, response body, auth requirement, role requirement, or error response changes, update the Swagger/OpenAPI decorators in the controller and DTOs in the same change.
 
 ## Auth And Security Rules
 
@@ -232,6 +236,7 @@ Before considering backend work complete, check:
 
 - Is the controller thin?
 - Is input validated with DTOs?
+- Are Swagger request and response schemas updated for every changed endpoint?
 - Is business logic in a service?
 - Is database access kept out of controllers?
 - Are secrets kept out of code?

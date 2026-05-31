@@ -1,4 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { UserRole } from '@prisma/client';
 import { AppController } from './app.controller';
 
 describe('AppController', () => {
@@ -16,8 +17,8 @@ describe('AppController', () => {
     it('should return the authenticated user', () => {
       const req = {
         user: {
-          email: 'admin@test.com',
           sub: '1',
+          role: UserRole.ADMIN,
         },
       };
 
